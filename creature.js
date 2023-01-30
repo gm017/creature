@@ -4,30 +4,47 @@ class Creature {
         this.xPos = xPos;
         this.yPos = yPos;
         this.location = [this.xPos, this.yPos];
+        this.full = true;
+        this.speed;
+        this.eyeCol;
     }
 
     drawCreature() {
+
+        if (this.full = false) {
+            this.eyeCol = [255, 0, 0];
+        } else {
+            this.eyeCol = [0, 255, 0];
+        }
+
         fill(255);
         ellipse(this.xPos, this.yPos, this.diam);
-        fill(255, 0, 0);
+        fill(this.eyeCol);
         ellipse(this.xPos - 6, this.yPos - 2, 4);
         ellipse(this.xPos + 6, this.yPos - 2, 4);
     }
 
     followPlayer() {
+
+        if (this.full = false) {
+            this.speed = 1.5;
+        } else {
+            this.speed = 0.4;
+        }
+
         this.location = [this.xPos, this.yPos];
         console.log(this.location);
         if (this.xPos < player.xPos) {
-            this.xPos += 1.5;
+            this.xPos += this.speed;
         }
         if (this.xPos > player.xPos) {
-            this.xPos -= 1.5;
+            this.xPos -= this.speed;
         }
         if (this.yPos < player.yPos) {
-            this.yPos += 1.5;
+            this.yPos += this.speed;
         }
         if (this.yPos > player.yPos) {
-            this.yPos -= 1.5;
+            this.yPos -= this.speed;
         }
     }
 
