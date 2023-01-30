@@ -4,7 +4,7 @@ class Creature {
         this.xPos = xPos;
         this.yPos = yPos;
         this.location = [this.xPos, this.yPos];
-        this.full = true;
+        this.full = false;
         this.speed;
         this.eyeCol;
     }
