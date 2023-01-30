@@ -14,7 +14,7 @@ function setup() {
   createCanvas(400, 400);
   player = new Player(10, 10, 200, 100);
   creatureOne = new Creature(30, 40, 100);
-  food = new Food(round(random(0, width)), round(random(0, height)));
+  food = new Food(round(random(50, width - 50)), round(random(50, height - 50)));
   drawGUI();
 }
 
@@ -27,6 +27,19 @@ function draw() {
   player.drawPlayer();
   food.drawFood();
   creatureOne.eatFood();
+
+  buttonUp.mousePressed(() => {
+    player.yPos -= 25;
+  })
+  buttonDown.mousePressed(() => {
+    player.yPos += 25;
+  })
+  buttonLeft.mousePressed(() => {
+    player.xPos -= 25;
+  })
+  buttonRight.mousePressed(() => {
+    player.xPos += 25;
+  })
 }
 
 function drawGUI() {
@@ -40,4 +53,3 @@ function drawGUI() {
   buttonContainer.style("max-width", "400px");
   buttonContainer.style("justify-content", "center");
 }
-
